@@ -1,3 +1,4 @@
+
 """
 tgvc-userbot, Telegram Voice Chat Userbot
 Copyright (C) 2021  Dash Eclipse
@@ -24,6 +25,8 @@ requirements:
 
 Get your Telegram API Key from:
 https://my.telegram.org/apps
+
+Replit: https://replit.com/@dashezup/generate-pyrogram-session-string
 """
 import asyncio
 
