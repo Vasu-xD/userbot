@@ -118,7 +118,7 @@ async def playout_ended_handler(_, __):
 
 @Client.on_message(main_filter
                    & filters.command("join", prefixes="!"))
-async def (client, m: Message):
+async def join_voice_chat(client, m: Message):
     command = m.command
     len_command = len(command)
     if 2 <= len_command <= 4:
@@ -158,7 +158,7 @@ async def list_voice_chat(client, m: Message):
 
 @Client.on_message(main_filter
                    & filters.regex("^!leave$"))
-async def (_, m: Message):
+async def leave_voice_chat(_, m: Message):
     group_call = mp.group_call
     mp.playlist.clear()
     group_call.input_filename = ''
