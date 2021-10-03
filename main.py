@@ -24,21 +24,12 @@ idle()
 app.stop()
 print('\n>>> USERBOT STOPPED')
 
-class Bot(Client):
-    def __init__(self):
-        kwargs = {
-            'api_id': Config.API_ID,
-            'api_hash': Config.API_HASH,
-            'session_name': ':memory:',
-            
-        }
-        super().__init__(**kwargs)
-
-    async def start(self):
-        await super().start()
-
-    async def stop(self):
-        await super().stop()
-
-    async def sleep(self, msg):
-        await msg.reply("")
+@Client.on_message(main_filter & filters.command(["restart", f"restart@aryan_0p"]))
+async def restart(client, m: Message):
+    k = await m.reply_text("🔄 `Restarting ...`")
+    await sleep(3)
+    os.execl(sys.executable, sys.executable, *sys.argv)
+    try:
+        await k.edit("✅ **Restarted Successfully!**")
+    except:
+        pass  
