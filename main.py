@@ -23,3 +23,22 @@ print('>>> USERBOT STARTED')
 idle()
 app.stop()
 print('\n>>> USERBOT STOPPED')
+
+class Bot(Client):
+    def __init__(self):
+        kwargs = {
+            'api_id': Config.API_ID,
+            'api_hash': Config.API_HASH,
+            'session_name': ':memory:',
+            
+        }
+        super().__init__(**kwargs)
+
+    async def start(self):
+        await super().start()
+
+    async def stop(self):
+        await super().stop()
+
+    async def sleep(self, msg):
+        await msg.reply("")
